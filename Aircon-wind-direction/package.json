@@ -4,9 +4,13 @@
   "description": "エアコンの風向き",
   "main": "index.js",
   "scripts": {
-    "deploy": "node-lambda deploy",
+    "build": "tsc",
+    "deploy": "npm run build && node-lambda deploy -G dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "SuyamaDaichi",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  }
 }

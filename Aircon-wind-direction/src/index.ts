@@ -1,5 +1,6 @@
-function hello(name: string): string {
-    return `Hello, ${name}!`;
-}
+import { Context, APIGatewayEvent } from "aws-lambda";
 
-console.log(hello("TypeScript"));
+
+export function handler(event: APIGatewayEvent, context?: Context): string {
+    return `Hello, ${context}!`;
+}

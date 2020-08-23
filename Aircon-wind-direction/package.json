@@ -22,5 +22,9 @@
     "ts-node": "^9.0.0",
     "ts-node-dev": "^1.0.0-pre.60",
     "typescript": "^4.0.0"
+  },
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.61",
+    "aws-sdk": "^2.738.0"
   }
 }

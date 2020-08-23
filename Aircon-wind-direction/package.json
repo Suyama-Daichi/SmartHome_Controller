@@ -1,0 +1,12 @@
+{
+  "name": "aircon-wind-direction",
+  "version": "1.0.0",
+  "description": "エアコンの風向き",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "node-lambda deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SuyamaDaichi",
+  "license": "ISC"
+}

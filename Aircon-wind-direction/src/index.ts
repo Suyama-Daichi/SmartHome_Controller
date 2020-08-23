@@ -3,6 +3,13 @@ import axios from 'axios';
 
 export async function handler(event: APIGatewayEvent, context?: Context): Promise<string> {
     const token = process.env['remoToken'];
-    console.log(token);
+    const baseRequest = axios.create({
+        baseURL: `api.nature.global`,
+        headers: { Authorization: `Bearer ${token}` },
+        responseType: 'json'
+    });
+
+    const res = await baseRequest.get('/1/devices');
+    console.log(res);
     return `Hello, ${token}!`;
 }

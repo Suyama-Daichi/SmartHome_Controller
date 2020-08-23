@@ -5,12 +5,11 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "ts-node src/index.ts",
-    "dev:watch": "ts-node-dev --respawn src/index.ts",
+    "start": "ts-node-dev --respawn src/caller.ts",
     "clean": "rimraf dist/*",
     "tsc": "tsc",
     "build": "npm-run-all clean tsc",
-    "deploy": "npm run build && node-lambda deploy -G dist",
-    "start": "node ."
+    "deploy": "npm run build && node-lambda deploy -G dist"
   },
   "keywords": [],
   "author": "SuyamaDaichi",

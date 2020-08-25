@@ -1,6 +1,7 @@
 import { Context, APIGatewayEvent } from "aws-lambda";
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import * as dotenv from "dotenv";
+import { Appliances } from "./model";
 dotenv.config();
 
 export async function handler(event: APIGatewayEvent, context?: Context): Promise<string> {
@@ -10,10 +11,17 @@ export async function handler(event: APIGatewayEvent, context?: Context): Promis
         headers: { Authorization: `Bearer ${token}` },
         responseType: 'json'
     });
-
-    const res = await baseRequest.get('/1/devices')
+    let res: AxiosResponse<Appliances> | void = await baseRequest.post<Appliances>(`/1/appliances/${process.env['DEVICE_ID']}/aircon_settings`,
+        {
+            params: {
+                air_direction: 7
+            }
+        })
         .catch(e => {
             console.error(e);
         });
+
+    console.log(res);
+
     return res ? 'success!' : 'failured';
 }
